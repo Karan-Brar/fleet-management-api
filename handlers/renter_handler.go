@@ -28,6 +28,8 @@ func (h *RenterHandler) CreateRenter (c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err. Error()})
 		return
 	}
+
+	c.JSON(http.StatusCreated, gin.H{"message": "Renter Created successfully"})
 }
 
 func (h *RenterHandler) GetRenter (c *gin.Context) {

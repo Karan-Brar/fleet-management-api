@@ -13,15 +13,15 @@ type RentalRepository interface {
 	GetRentalsByCarID(id string) ([]models.Rental, error)
 }
 
-type rentalsRepository struct {
+type rentalRepository struct {
     db *dynamodb.DynamoDB
 }
 
 func NewRentalRepository(db *dynamodb.DynamoDB) RentalRepository {
-	return &rentalsRepository{db : db}
+	return &rentalRepository{db : db}
 }
 
-func (r *rentalsRepository) CreateRental(rental models.Rental) error{
+func (r *rentalRepository) CreateRental(rental models.Rental) error{
 	item, err := dynamodbattribute.MarshalMap(rental)
 
 	if err != nil {
@@ -41,7 +41,7 @@ func (r *rentalsRepository) CreateRental(rental models.Rental) error{
 	return err
 }
 
-func (r *rentalsRepository) GetRentalsByCarID(carID string) ([]models.Rental, error) {
+func (r *rentalRepository) GetRentalsByCarID(carID string) ([]models.Rental, error) {
 	    input := &dynamodb.QueryInput{
         TableName: aws.String("Rentals"),
         KeyConditionExpression: aws.String("CarID = :carID"),
