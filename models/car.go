@@ -7,7 +7,7 @@ type Car struct {
 	Year int `json:"year" dynamodbav:"Year"`
 	VIN string `json:"vin" dynamodbav:"VIN"`
 	Status string `json:"status" dynamodbav:"Status"`
-	DailyRate float64 `json:"status" dynamodbav:"DailyRate`
+	DailyRate float64 `json:"daily_rate" dynamodbav:"DailyRate`
 	Features []string `json:"features" dynamodbav:"Features"`
 	Mileage int `json:"mileage" dynamodbav:"Mileage"`
 	Transmission string   `json:"transmission" dynamodbav:"Transmission"`
